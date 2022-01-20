@@ -1,6 +1,9 @@
 import Vapor
 
 func routes(_ app: Application) throws {
+    
+    try app.register(collection: UserController())
+    
     //http://127.0.0.1:8080
     app.get { req in
         return "ROOT"
@@ -71,24 +74,24 @@ func routes(_ app: Application) throws {
     // /users
     // POST /users
     
-    let users = app.grouped("users")
-    
-    //users
-    users.get { req in
-        return "/users"
-    }
-    
-    //users/23
-    users.get(":userId") { req -> String in
-        guard let userId = req.parameters.get("userId") else {
-            throw Abort(.badRequest)
-        }
-        return "userId = \(userId)"
-    }
-    
-    //POST /users
-    users.post { req in
-        return "POST"
-    }
-    
+//    let users = app.grouped("users")
+//    
+//    //users
+//    users.get { req in
+//        return "/users"
+//    }
+//    
+//    //users/23
+//    users.get(":userId") { req -> String in
+//        guard let userId = req.parameters.get("userId") else {
+//            throw Abort(.badRequest)
+//        }
+//        return "userId = \(userId)"
+//    }
+//    
+//    //POST /users
+//    users.post { req in
+//        return "POST"
+//    }
+//    
 }
