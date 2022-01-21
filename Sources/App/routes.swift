@@ -3,6 +3,7 @@ import Vapor
 func routes(_ app: Application) throws {
     
     try app.register(collection: UserController())
+    try app.register(collection: APIController())
     
     //http://127.0.0.1:8080
     app.get { req in

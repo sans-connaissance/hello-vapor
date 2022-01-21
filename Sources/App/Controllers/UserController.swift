@@ -34,7 +34,7 @@ struct UserController: RouteCollection {
     }
     
     func show(req: Request) throws -> String {
-        guard let userId = req.parameters67
+        guard let userId = req.parameters
                 .get("userId") as String? else {
             throw Abort(.badRequest)
         }
